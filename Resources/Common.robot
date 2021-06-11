@@ -6,8 +6,12 @@ ${BROWSER}=         Chrome
 
 
 *** Keywords ***
+Driver Setup
+    Run Keyword If      '${BROWSER}' == 'Chrome'     create webdriver        ${BROWSER}      Drivers\\chromedriver.exe
+
 Main setup
-    open browser                        http://uitestingplayground.com/     ${BROWSER}
+    driver setup
+    Go to                               http://uitestingplayground.com/
     maximize browser window
     wait until page contains element    id=title
 
