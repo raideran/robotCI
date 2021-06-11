@@ -1,10 +1,13 @@
 *** Settings ***
 Library     SeleniumLibrary
 
+*** Variables ***
+${BROWSER}=         Chrome
+
 
 *** Keywords ***
 Main setup
-    open browser                        http://uitestingplayground.com/     chrome
+    open browser                        http://uitestingplayground.com/     ${BROWSER}
     maximize browser window
     wait until page contains element    id=title
 
